@@ -411,13 +411,13 @@ function getCommonDirectoryPath(pathes) {
   for (let i = 0; i < splittedPathes[0].length; i += 1) {
     const currentPath = splittedPathes[0][i];
     for (let j = 1; j < splittedPathes.length; j += 1) {
-      if (!splittedPathes[j][i] || splittedPathes[j][i] !== currentPath) {
+      if ((!splittedPathes[j][i] && splittedPathes[j][i] !== '') || splittedPathes[j][i] !== currentPath) {
         isSame = false;
         break;
       }
     }
     if (!isSame) break;
-    path += currentPath;
+    path += `${currentPath}/`;
   }
   return path;
 }
